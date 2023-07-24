@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Selectores</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="../Pagina principal/html/index.html"> <img class="logo" src="../Pagina principal/img/logotipo.png"> </a>
+            <nav>
+                <ul>
+                    <div class="dropdown">
+                        <li>
+                            <a>➤ Idiomas</a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="https://blog.hubspot.com/">Español</a>
+                            <a href="https://academy.hubspot.com/">Ingles</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <li>
+                            <a>➤ Perfil</a>
+                        </li>
+                        <div class="dropdown-content">
+                            <a href="../../perfil/Registrarse/html/registrarse.html">Registrarse</a>
+                            <a href="../../perfil/Iniciar sesión/html/login.html">Iniciar sesión</a>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+        <h2 class="texto-buscador">Buscador</h2>
+        <form>
+            <div class="container-islas">
+                <label for="isla">Islas:</label>
+                <select name="isla" id="isla" class="buscador" onchange="cargarComarcas();">
+                    <option value="">Seleccione una Isla...</option>
+                </select>
+            </div>
+            <div class="container-comarcas">
+                <label for="comarca">Comarcas:</label>                    
+                <select name="comarca" id="comarca" class="buscador">
+                    <option value="">Seleccione una Comarca...</option>
+                </select>
+            </div>
+            <!--
+            <div class="container-municipios">
+                <label for="municipio">Municipios:</label>                    
+                <select name="municipio" id="municipio" class="buscador">
+                    <option value="">Seleccione un Municipio...</option>
+                </select>
+            </div>
+            -->
+        </form>
+    </body>
+    <script src="index.js"></script>
+</html>
