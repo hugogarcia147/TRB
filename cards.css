@@ -1,0 +1,44 @@
+.card {
+    height: 230px;
+    width: 200px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s;
+    }
+
+#card {
+    background-color: #47cfaf;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='20' viewBox='0 0 16 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234c7091' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M8 0v20L0 10M16 0v10L8 0M16 10v10H8'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+h5 {
+    color: #fff;
+    text-shadow: 0 0 5px #999;
+}
+
+.card p {
+    text-shadow: 0 0 15px #000000;
+    color: #fff;
+} 
+
+.data {
+    text-align:right; 
+    padding: 120px 0px 0px 85px;
+    font-size: 9pt;
+}
+
+.valoration {
+    text-align: center; 
+    padding-top: 20%;
+    font-size: 9pt;;
+}
