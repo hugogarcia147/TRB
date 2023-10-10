@@ -1,0 +1,44 @@
+<div class="navbar">
+    <!--{{session}}
+    {% if '2' == session %} selected {% endif %}-->
+    <a href="/" title="Puntua el mudo"> <img class="logo" src="../static/img/logotipo.png"> </a>
+    <nav>
+        <div class="container-select-idiomas">
+            <select id="opciones" name="{{translations.languages}}">
+            {% for idioma in idiomas %}
+                <option value="{{idioma.id}}" {% if idioma.id == session %} selected {% endif %}>{{idioma.name}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div class="dropdown">
+            <ul>
+                <li>
+                    <a>➤ {{translations.profile}}</a>
+                </li>
+                <div class="dropdown-content">
+                    <a href="/registrarse">{{translations.createNewUser}}</a>
+                    <a href="/login">{{translations.login}}</a>
+                </div>
+            </ul>
+        </div>
+    </nav>
+    {% if menu != None %}
+    <header class="main-header" >
+        <nav id="nav" class="main-nav" >
+        <div class="nav-links" >
+            <a class="link-item" href="/" >Home</a>
+            {% for menu in data.menu %}
+                <a class="link-item" href="{{menu.url}}" value="{{menu.id}}">{{menu.title}}</a>
+            {% endfor %}
+            <a class="link-item" href="/publicar">{{ translations.post }}</a>
+            <a class="link-item" href="/explore">{{ translations.explore }}</a>
+        </div>
+        </nav>
+        <button id="button-menu" class="button-menu" >
+        <span></span>
+        <span></span>
+        <span></span>
+        </button>
+    </header>
+    {% endif %}
+</div>
