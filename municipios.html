@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Municipios</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecera.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/menuIcon.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/town.css' ) }}">
+    </head>
+    <body>
+        {% include "cabecera.html" %}
+        <input type="hidden" id="townId" value="{{ data.town.id }}" />
+        <div class="container">
+            <h2 class="title" id="{{ data.town.id }}">{{ data.town.name }}</h2>
+        </div>
+        <select class="section" id="categories" onchange="cargarPublicacionesMunicipiosDesdeAPI()" >
+            {% for section in data.sections %}
+                <option value="{{ section.id }}">{{ section.name }}</option>
+            {% endfor %} 
+        </select>
+        <div id="container-cards">
+            {% for publication in data.publications %}
+                {% include "cardPublicacion.html" %}
+            {% endfor %} 
+        </div>
+    </body>
+    <script src="{{ url_for('static', filename='js/menuIcon.js' ) }}"></script>
+    <script src="{{ url_for('static', filename='js/towns.js' ) }}"></script>
+</html>

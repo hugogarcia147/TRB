@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Form</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecera.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/menuIcon.css' ) }}">
+    </head>
+    <body>
+        <!--Este div contiene el html de la cabecera-->
+        <div>
+            {% include "cabecera.html" %}
+        </div>
+        <div class="container">
+            <h2>{{translations.login}}</h2>
+            <div class="buttons">
+                <button class="google-btn">
+                    <picture>
+                        <img src="../static/img/Google__G__Logo.svg.png" alt="logo-google" />
+                    </picture>
+                    <span>{{translations.continueWithGoogle}}</span>
+                </button>
+                <button class="twitter-btn">
+                    <picture>
+                        <img src="../static/img/Logo_of_Twitter.svg.png" alt="logo-twitter" />
+                    </picture>
+                </button>
+            </div>
+            <div class="separator">
+                <hr>
+                <span>{{translations.or}} ...</span>
+                <hr>
+            </div>
+            <form action="" method="">
+                <div class="section-inputs">
+                    <label for="username">
+                        <span>{{translations.username}}</span>
+                        <input id="username" name="username" />
+                    </label>
+                </div>
+                <label for="password">
+                    <span>{{translations.password}}</span>
+                    <input id="password" name="password" placeholder="6+" />
+                </label>
+                <label for="checkbox" class="checkbox-label">
+                    <input type="checkbox" id="checkbox" />
+                    <span>{{translations.iAcceptTheTermsAndConditionsAndTheLegalNotice}}</span>
+                </label>
+                <button type="submit" class="submit-btn">{{translations.login}}</button>
+            </form>
+        </div>
+    </body>
+    <script src="{{ url_for('static', filename='js/idioma.js' ) }}"></script>
+    <script src="{{ url_for('static', filename='js/menuIcon.js' ) }}"></script>
+</html>

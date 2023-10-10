@@ -1,0 +1,10 @@
+<select class="buscador" id="categories" onchange="cargarPublicacionesDesdeAPI()" >
+    {% for section in data.sections %}
+        <option class="section" value="{{ section.id }}" >{{ section.name }}</option>
+    {% endfor %} 
+</select>
+<div id="container-cards">
+    {% for publication in data.publications %}
+        {% include "cardPublicacion.html" %}
+    {% endfor %} 
+</div>

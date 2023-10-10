@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prueba</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css' ) }}">
+    </head>
+    <body>
+        <a href="">
+            {% for town in towns %}
+                <div class="card" style="background-size: 10%;">
+                    <h5>{{ town.name }}</h5>
+                </div>
+            {% endfor %}
+        </a>
+    </body>
+</html>

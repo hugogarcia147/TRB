@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecera.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/valoraciones.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/menuIcon.css' ) }}">
+        <title>Prueba Valoraciones</title>
+    </head>
+    <body>
+        <div>  
+            {% include "cabecera.html" %}
+        </div>
+        <div class="container">
+            <div class="left-section">
+                <h1>{{ data.valorations.title }}</h1>
+                <!-- <img src="imagen.jpg" alt="Imagen"> -->
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+                <p>{{ data.valorations.description }}</p>
+                <p>{{ data.valorations.data }}</p>
+                <input id="publicationId" type="hidden" value="{{data.publicacionId}}" />
+                <input id="starsNumbers" type="hidden" />
+                <div class="add-rating">
+                    <h3>{{ translations.leaveYourRating }}</h3>
+                    <div id="user-stars" class="user-stars">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <textarea id="user-comment" placeholder="Comentario"></textarea>
+                    <button id="submit-rating">{{ translations.send }}</button>
+                </div>
+            </div>
+            <div class="right-section">
+                <h2>{{ translations.peopleRatings }}</h2>
+                <div class="user-ratings">
+                    {% for resena in data.resenas %}
+                        <p class="description">{{resena.description}}</p>
+                        <p id="user-date" class="fecha">{{resena.date}}</p>
+                        <p class="valoracion">{{resena.valoration}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='js/valoraciones.js' ) }}"></script>
+        <script src="{{ url_for('static', filename='js/menuIcon.js' ) }}"></script>
+    </body>
+</html>
+
+

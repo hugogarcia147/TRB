@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Selectores</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecera.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/selectores.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/menuIcon.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css' ) }}">
+    </head>
+    <body>
+        <!--Este div contiene el html de la cabecera-->
+        <div>
+            {% include "cabecera.html" %}
+        </div>
+        <h2 class="texto-buscador">{{translations.searchEngine}}</h2>
+        <form>
+            <div class="container-islas">
+                <label for="isla">{{translations.islands}} :</label>
+                <select name="isla" id="isla" class="buscador" onchange="cargarComarcasDesdeAPI();">
+                    <option value="">{{translations.SelectAnIsland}} ...</option>
+                    {% for island in data.island %}
+                        <option value="{{island.id}}">{{island.title}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="container-comarcas">
+                <label for="comarca">{{translations.regions}} :</label>                    
+                <select name="comarca" id="comarca" class="buscador" onchange="cargarMunicipiosDesdeAPI();">
+                    <option value="">{{translations.SelectARegion}} ...</option>
+                </select>
+            </div>
+            <div class="container-cards" id="container-cards">
+                <a href="">
+                    {% for town in towns %}
+                        <div class="card" id="card" style="background-size: 10%;">
+                            <h5>{{ town.name }}</h5>
+                        </div>
+                    {% endfor %}
+                </a>
+            </div>
+        </form>
+    </body>
+    <script src="{{ url_for('static', filename='js/selectores.js' ) }}"></script>
+    <script src="{{ url_for('static', filename='js/idioma.js' ) }}"></script>
+    <script src="{{ url_for('static', filename='js/menuIcon.js' ) }}"></script>
+</html>

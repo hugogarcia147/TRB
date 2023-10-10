@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>islas</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecera.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/sections.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/menuIcon.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/islas.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/selectores.css' ) }}">
+    </head>
+    <body>
+        {% include "cabecera.html" %}
+        <div class="fondo" style=
+            "background-image: linear-gradient(rgba(87, 87, 87, 0.394),rgba(87, 87, 87, 0.394)),url('/static/img/{{data.island.image}}'); ">
+            <input type="hidden" id="islId" value="{{ data.islandId }}" />
+            <div class="container">
+                <h2 class="title">{{data.island.title}}</h2>
+                <!-- <img src="/static/img/{{data.island.image}}" width="42%"/> -->
+                {% include "sections.html" %}
+            </div>
+        </div>
+    </body>
+    <script src="{{ url_for('static', filename='js/sections.js' ) }}"></script>
+    <script src="{{ url_for('static', filename='js/idioma.js' ) }}"></script>
+    <script src="{{ url_for('static', filename='js/menuIcon.js' ) }}"></script>
+    <script src="{{ url_for('static', filename='js/islas.js' ) }}"></script>
+</html>
