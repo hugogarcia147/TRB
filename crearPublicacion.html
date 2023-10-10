@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lugares en Islas Baleares</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/crearPublicacion.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cabecera.css' ) }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/menuIcon.css' ) }}">
+    </head>
+    <body>
+        <div>  
+            {% include "cabecera.html" %}
+        </div>
+        <header>
+            <h1>{{ translations.publishPlacesInBalearicIslands }}</h1>
+        </header>
+        <main>
+            <section id="form-section">
+                <h2>{{translations.addANewLocation}}</h2>
+                <form id="place-form">
+                    <label for="place-name">{{translations.placeName}} :</label>
+                    <input type="text" id="placeName" required>
+                
+                    <label for="place-island">{{translations.island}} :</label>
+                    <select name="isla" id="isla" value="isla" class="buscador" onchange="cargarComarcasDesdeAPI();">
+                        <option value="">{{translations.SelectAnIsland}} ...</option>
+                        {% for island in data.island %}
+                            <option value="{{island.id}}">{{island.title}}</option>
+                        {% endfor %}
+                    </select>
+                
+                    <label for="place-district">{{translations.region}} :</label>
+                    <select name="comarca" id="comarca" class="buscador" onchange="cargarMunicipiosAPI();">
+                        <option value="">{{translations.SelectARegion}} ...</option>
+                    </select>
+                
+                    <label for="place-region">{{translations.town}} :</label>
+                    <select name="municipio" id="municipio" class="buscador" >
+                        <option value="">{{translations.SelectATown}} ...</option>
+                    </select>
+
+                    <label for="place-category">{{translations.category}} :</label>
+                    <select name="categoria" id="categoria" class="buscador" >
+                        {% for categoria in data.categoria %}
+                            <option value="{{categoria.id}}">{{categoria.name}}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="placeDescription">{{translations.description}} :</label>
+                    <textarea id="placeDescription" rows="4" required></textarea>
+                    
+                    <button type="button" class="button" onclick="createPublication()">{{translations.post}}</button>
+                </form>
+            </section>
+        </main>
+        <script src="{{ url_for('static', filename='js/crearPublicacion.js' ) }}"></script>
+        <script src="{{ url_for('static', filename='js/menuIcon.js' ) }}"></script>
+        <script src="{{ url_for('static', filename='js/selectores.js' ) }}"></script>
+    </body>
+</html>
